@@ -195,6 +195,5 @@ pip-cache/  # Added by me
 **/.history
 
 # End of https://www.gitignore.io/api/visualstudiocode
-breakout/__init__.py
 .DS_Store
 
