@@ -1,6 +1,7 @@
 from turtle import Turtle
 from breakout.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from breakout.constants import BRICKS_PER_ROW, BRICK_HEIGHT, COLORS
+from turtle import Screen
 
 
 class BrickManager:
@@ -12,7 +13,13 @@ class BrickManager:
         Initializes the brick wall.
         """
         self.brick_list = []
+        self._brick_shape()
         self.create_bricks()
+
+    def _brick_shape(self):
+        screen = Screen()
+        custom_shape = ((0, 0), (20, 0), (20, 60), (0, 60))
+        screen.register_shape("brick_shape", custom_shape)
 
     def create_bricks(self):
         brick_width = SCREEN_WIDTH // BRICKS_PER_ROW - 1
@@ -30,9 +37,8 @@ class BrickManager:
         """
         Adds a brick to the brick wall.
         """
-        new_brick = Turtle(shape="square")
+        new_brick = Turtle(shape="brick_shape")
         new_brick.color(color)
-        new_brick.shapesize(stretch_wid=1, stretch_len=3)
         new_brick.penup()
         new_brick.goto(position)
         self.brick_list.append(new_brick)

@@ -118,8 +118,8 @@ def pause_game():
 
 # Key bindings
 screen.listen()
-screen.onkey(paddle.move_left, "Left")
-screen.onkey(paddle.move_right, "Right")
+screen.onkeypress(paddle.move_left, "Left")
+screen.onkeypress(paddle.move_right, "Right")
 screen.onkey(pause_game, "space")
 
 

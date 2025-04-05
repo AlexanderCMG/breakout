@@ -20,8 +20,6 @@ class Ball(Turtle):
         self.goto(self.x, self.y)
         self.speed = [START_SPEED, START_SPEED]
 
-        print(self.shapesize())
-
     def move(self):
         """
         Moves the ball based on the x_move and y_move attributes.
@@ -77,7 +75,7 @@ class Ball(Turtle):
         Returns True if the ball hits the top wall.
         """
         # bounce off the top wall
-        if self.y > (SCREEN_HEIGHT / 2) - 20:
+        if self.y > (SCREEN_HEIGHT / 2) - 10:
             return True
         return False
 
