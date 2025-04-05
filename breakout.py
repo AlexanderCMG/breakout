@@ -1,4 +1,4 @@
-from turtle import Screen
+import turtle as t
 from breakout.paddle import Paddle
 from breakout.ball import Ball
 from breakout.brick import BrickManager
@@ -17,7 +17,7 @@ logging.basicConfig(filename=file_path,
 #
 
 # Setup screen
-screen = Screen()
+screen = t.Screen()
 screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
 screen.bgcolor("black")
 screen.title("Breakout Game")
@@ -134,7 +134,6 @@ logging.info(f"Score: {scoreboard.score}, Lives: {scoreboard.lives}")
 while game_on:
     screen.update()
     while game_on and not pause:
-        time.sleep(ball.speed)
         screen.update()
         ball.move()
         handle_wall_collisions()

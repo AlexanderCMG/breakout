@@ -18,29 +18,29 @@ class Ball(Turtle):
         self.x = 0
         self.y = 100 - (SCREEN_HEIGHT / 2)
         self.goto(self.x, self.y)
-        self.dx = 10
-        self.dy = 10
-        self.speed = START_SPEED
+        self.speed = [START_SPEED, START_SPEED]
+
+        print(self.shapesize())
 
     def move(self):
         """
         Moves the ball based on the x_move and y_move attributes.
         """
-        self.x = self.xcor() + self.dx
-        self.y = self.ycor() + self.dy
+        self.x = self.xcor() + self.speed[0]
+        self.y = self.ycor() + self.speed[1]
         self.goto(self.x, self.y)
 
     def bounce_x(self):
         """
         Bounces the ball in the x-axis.
         """
-        self.dx *= -1
+        self.speed[0] *= -1
 
     def bounce_y(self):
         """
         Bounces the ball in the y-axis.
         """
-        self.dy *= -1
+        self.speed[1] *= -1
 
     def reset_position(self):
         """
@@ -50,16 +50,14 @@ class Ball(Turtle):
         self.x = 0
         self.y = 100 - (SCREEN_HEIGHT / 2)
         self.goto(self.x, self.y)
-        self.dx = 10
-        self.dy = 10
-        self.speed = START_SPEED
+        self.speed = [START_SPEED, START_SPEED]
 
     def increase_speed(self):
         """
         Increases the ball speed by 10%, by reducing the speed attribute.
         speed attribute is the time delay between ball movements.
         """
-        self.speed *= 0.9
+        self.speed = [direction * 1.1 for direction in self.speed]
 
     def hits_side_wall(self):
         """
@@ -67,8 +65,8 @@ class Ball(Turtle):
         Returns True if the ball hits the left or right wall.
         """
         # bounce off the left wall
-        left_wall = -(SCREEN_WIDTH/2 - 20)
-        right_wall = (SCREEN_WIDTH/2 - 20)
+        left_wall = -(SCREEN_WIDTH/2 - 10)
+        right_wall = (SCREEN_WIDTH/2 - 10)
         if ((self.x < left_wall) or self.x > right_wall):
             return True
         return False

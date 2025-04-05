@@ -5,7 +5,7 @@ This module contains all the constants used in the game.
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 800
 # Ball
-START_SPEED = 0.08  # very slow  0.1 | slow 0.08 | very fast 0.01
+START_SPEED = 1  # very slow  1 | slow 3 | very fast 10
 # Bricks
 BRICKS_PER_ROW = 9
 BRICK_HEIGHT = 25
